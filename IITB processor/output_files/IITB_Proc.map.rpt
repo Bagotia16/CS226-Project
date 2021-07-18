@@ -1,0 +1,886 @@
+Analysis & Synthesis report for IITB_Proc
+Sat May 22 17:01:25 2021
+Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |IITB_PROC|state
+  9. Registers Removed During Synthesis
+ 10. Removed Registers Triggering Further Register Optimizations
+ 11. General Register Statistics
+ 12. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 13. Port Connectivity Checks: "ALU:ALUnit|sixteen_bit_adder:op_1|full_adder:Full_Add1"
+ 14. Port Connectivity Checks: "ALU:ALUnit|sixteen_bit_adder:op_1"
+ 15. Post-Synthesis Netlist Statistics for Top Partition
+ 16. Elapsed Time Per Partition
+ 17. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2020  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++-------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                  ;
++---------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status     ; Successful - Sat May 22 17:01:25 2021       ;
+; Quartus Prime Version           ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
+; Revision Name                   ; IITB_Proc                                   ;
+; Top-level Entity Name           ; IITB_PROC                                   ;
+; Family                          ; Cyclone V                                   ;
+; Logic utilization (in ALMs)     ; N/A                                         ;
+; Total registers                 ; 0                                           ;
+; Total pins                      ; 2                                           ;
+; Total virtual pins              ; 0                                           ;
+; Total block memory bits         ; 0                                           ;
+; Total DSP Blocks                ; 0                                           ;
+; Total HSSI RX PCSs              ; 0                                           ;
+; Total HSSI PMA RX Deserializers ; 0                                           ;
+; Total HSSI TX PCSs              ; 0                                           ;
+; Total HSSI PMA TX Serializers   ; 0                                           ;
+; Total PLLs                      ; 0                                           ;
+; Total DLLs                      ; 0                                           ;
++---------------------------------+---------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                             ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                          ; Setting            ; Default Value      ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                          ; 5CGXFC7C7F23C8     ;                    ;
+; Top-level entity name                                                           ; IITB_Proc          ; IITB_Proc          ;
+; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
+; Use smart compilation                                                           ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation                ; On                 ; On                 ;
+; Enable compact report table                                                     ; Off                ; Off                ;
+; Restructure Multiplexers                                                        ; Auto               ; Auto               ;
+; MLAB Add Timing Constraints For Mixed-Port Feed-Through Mode Setting Don't Care ; Off                ; Off                ;
+; Create Debugging Nodes for IP Cores                                             ; Off                ; Off                ;
+; Preserve fewer node names                                                       ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                                   ; Enable             ; Enable             ;
+; Verilog Version                                                                 ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                                    ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                        ; Auto               ; Auto               ;
+; Safe State Machine                                                              ; Off                ; Off                ;
+; Extract Verilog State Machines                                                  ; On                 ; On                 ;
+; Extract VHDL State Machines                                                     ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                               ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                      ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                                  ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                         ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                       ; On                 ; On                 ;
+; Parallel Synthesis                                                              ; On                 ; On                 ;
+; DSP Block Balancing                                                             ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                              ; On                 ; On                 ;
+; Power-Up Don't Care                                                             ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                                    ; Off                ; Off                ;
+; Remove Duplicate Registers                                                      ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                            ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                          ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                           ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                       ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                            ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                             ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                                  ; Off                ; Off                ;
+; Optimization Technique                                                          ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                              ; 70                 ; 70                 ;
+; Auto Carry Chains                                                               ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                            ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                           ; Off                ; Off                ;
+; Auto ROM Replacement                                                            ; On                 ; On                 ;
+; Auto RAM Replacement                                                            ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                      ; On                 ; On                 ;
+; Auto Shift Register Replacement                                                 ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                                 ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                                   ; On                 ; On                 ;
+; Strict RAM Replacement                                                          ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                               ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                           ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                                   ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                             ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                               ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                         ; On                 ; On                 ;
+; Report Parameter Settings                                                       ; On                 ; On                 ;
+; Report Source Assignments                                                       ; On                 ; On                 ;
+; Report Connectivity Checks                                                      ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                              ; Off                ; Off                ;
+; Synchronization Register Chain Length                                           ; 3                  ; 3                  ;
+; Power Optimization During Synthesis                                             ; Normal compilation ; Normal compilation ;
+; HDL message level                                                               ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                                 ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                        ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                              ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                       ; 100                ; 100                ;
+; Clock MUX Protection                                                            ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                     ; Off                ; Off                ;
+; Block Design Naming                                                             ; Auto               ; Auto               ;
+; SDC constraint protection                                                       ; Off                ; Off                ;
+; Synthesis Effort                                                                ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal                    ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                            ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                              ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                     ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                          ; On                 ; On                 ;
+; Automatic Parallel Synthesis                                                    ; On                 ; On                 ;
+; Partial Reconfiguration Bitstream ID                                            ; Off                ; Off                ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 1           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
++----------------------------+-------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                ;
++----------------------------------+-----------------+-----------------+----------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                         ; Library ;
++----------------------------------+-----------------+-----------------+----------------------------------------------------------------------+---------+
+; IITB_Proc.vhd                    ; yes             ; User VHDL File  ; /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd               ;         ;
+; full_adder.vhd                   ; yes             ; User VHDL File  ; /home/pushp/Project_226/CS226/My_Project/full_adder.vhd              ;         ;
+; LHI_Format.vhd                   ; yes             ; User VHDL File  ; /home/pushp/Project_226/CS226/My_Project/LHI_Format.vhd              ;         ;
+; Register_File.vhd                ; yes             ; User VHDL File  ; /home/pushp/Project_226/CS226/My_Project/Register_File.vhd           ;         ;
+; seven_bit_sign_extender.vhd      ; yes             ; User VHDL File  ; /home/pushp/Project_226/CS226/My_Project/seven_bit_sign_extender.vhd ;         ;
+; sixteen_bit_adder.vhd            ; yes             ; User VHDL File  ; /home/pushp/Project_226/CS226/My_Project/sixteen_bit_adder.vhd       ;         ;
+; ten_bit_sign_extender.vhd        ; yes             ; User VHDL File  ; /home/pushp/Project_226/CS226/My_Project/ten_bit_sign_extender.vhd   ;         ;
+; sixteen_bit_nand.vhd             ; yes             ; User VHDL File  ; /home/pushp/Project_226/CS226/My_Project/sixteen_bit_nand.vhd        ;         ;
+; memory.vhd                       ; yes             ; User VHDL File  ; /home/pushp/Project_226/CS226/My_Project/memory.vhd                  ;         ;
+; sixteen_bit_xor.vhd              ; yes             ; User VHDL File  ; /home/pushp/Project_226/CS226/My_Project/sixteen_bit_xor.vhd         ;         ;
+; ALU.vhd                          ; yes             ; User VHDL File  ; /home/pushp/Project_226/CS226/My_Project/ALU.vhd                     ;         ;
++----------------------------------+-----------------+-----------------+----------------------------------------------------------------------+---------+
+
+
++-----------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary         ;
++---------------------------------------------+-------+
+; Resource                                    ; Usage ;
++---------------------------------------------+-------+
+; Estimate of Logic utilization (ALMs needed) ; 0     ;
+;                                             ;       ;
+; Combinational ALUT usage for logic          ; 0     ;
+;     -- 7 input functions                    ; 0     ;
+;     -- 6 input functions                    ; 0     ;
+;     -- 5 input functions                    ; 0     ;
+;     -- 4 input functions                    ; 0     ;
+;     -- <=3 input functions                  ; 0     ;
+;                                             ;       ;
+; Dedicated logic registers                   ; 0     ;
+;                                             ;       ;
+; I/O pins                                    ; 2     ;
+;                                             ;       ;
+; Total DSP Blocks                            ; 0     ;
+;                                             ;       ;
+; Maximum fan-out node                        ; rst   ;
+; Maximum fan-out                             ; 1     ;
+; Total fan-out                               ; 2     ;
+; Average fan-out                             ; 0.50  ;
++---------------------------------------------+-------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                    ;
++----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-------------+--------------+
+; |IITB_PROC                 ; 0 (0)               ; 0 (0)                     ; 0                 ; 0          ; 2    ; 0            ; |IITB_PROC          ; IITB_PROC   ; work         ;
++----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+---------------------+-------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |IITB_PROC|state                                                                                                                                                                                                                                                          ;
++--------------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+----------+----------+----------+----------+----------+----------+----------+----------+----------+----------+--------------+
+; Name         ; state.Spc ; state.S20 ; state.S19 ; state.S18 ; state.S17 ; state.S16 ; state.S15 ; state.S14 ; state.S13 ; state.S12 ; state.S11 ; state.S10 ; state.S9 ; state.S8 ; state.S7 ; state.S6 ; state.S5 ; state.S4 ; state.S3 ; state.S2 ; state.S1 ; state.S0 ; state.Sreset ;
++--------------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+----------+----------+----------+----------+----------+----------+----------+----------+----------+----------+--------------+
+; state.Sreset ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0            ;
+; state.S0     ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 1        ; 1            ;
+; state.S1     ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 1        ; 0        ; 1            ;
+; state.S2     ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 1        ; 0        ; 0        ; 1            ;
+; state.S3     ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 1        ; 0        ; 0        ; 0        ; 1            ;
+; state.S4     ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0        ; 0        ; 0        ; 0        ; 0        ; 1        ; 0        ; 0        ; 0        ; 0        ; 1            ;
+; state.S5     ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0        ; 0        ; 0        ; 0        ; 1        ; 0        ; 0        ; 0        ; 0        ; 0        ; 1            ;
+; state.S6     ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0        ; 0        ; 0        ; 1        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 1            ;
+; state.S7     ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0        ; 0        ; 1        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 1            ;
+; state.S8     ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0        ; 1        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 1            ;
+; state.S9     ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 1        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 1            ;
+; state.S10    ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 1         ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 1            ;
+; state.S11    ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 1         ; 0         ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 1            ;
+; state.S12    ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 1         ; 0         ; 0         ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 1            ;
+; state.S13    ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 1         ; 0         ; 0         ; 0         ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 1            ;
+; state.S14    ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 1         ; 0         ; 0         ; 0         ; 0         ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 1            ;
+; state.S15    ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 1         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 1            ;
+; state.S16    ; 0         ; 0         ; 0         ; 0         ; 0         ; 1         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 1            ;
+; state.S17    ; 0         ; 0         ; 0         ; 0         ; 1         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 1            ;
+; state.S18    ; 0         ; 0         ; 0         ; 1         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 1            ;
+; state.S19    ; 0         ; 0         ; 1         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 1            ;
+; state.S20    ; 0         ; 1         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 1            ;
+; state.Spc    ; 1         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0         ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 0        ; 1            ;
++--------------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+-----------+----------+----------+----------+----------+----------+----------+----------+----------+----------+----------+--------------+
+
+
++--------------------------------------------------------------+
+; Registers Removed During Synthesis                           ;
++-----------------------------------------+--------------------+
+; Register name                           ; Reason for Removal ;
++-----------------------------------------+--------------------+
+; op_code[0..3]                           ; Lost fanout        ;
+; t2[3..15]                               ; Lost fanout        ;
+; Register_File:RF|registers[0][3]        ; Lost fanout        ;
+; Register_File:RF|registers[3][3]        ; Lost fanout        ;
+; Register_File:RF|registers[1][3]        ; Lost fanout        ;
+; Register_File:RF|registers[4][3]        ; Lost fanout        ;
+; Register_File:RF|registers[5][3]        ; Lost fanout        ;
+; Register_File:RF|registers[6][3]        ; Lost fanout        ;
+; Register_File:RF|registers[7][3]        ; Lost fanout        ;
+; Register_File:RF|registers[2][3]        ; Lost fanout        ;
+; Register_File:RF|registers[0][4]        ; Lost fanout        ;
+; Register_File:RF|registers[3][4]        ; Lost fanout        ;
+; Register_File:RF|registers[1][4]        ; Lost fanout        ;
+; Register_File:RF|registers[4][4]        ; Lost fanout        ;
+; Register_File:RF|registers[5][4]        ; Lost fanout        ;
+; Register_File:RF|registers[6][4]        ; Lost fanout        ;
+; Register_File:RF|registers[7][4]        ; Lost fanout        ;
+; Register_File:RF|registers[2][4]        ; Lost fanout        ;
+; Register_File:RF|registers[0][5]        ; Lost fanout        ;
+; Register_File:RF|registers[3][5]        ; Lost fanout        ;
+; Register_File:RF|registers[1][5]        ; Lost fanout        ;
+; Register_File:RF|registers[4][5]        ; Lost fanout        ;
+; Register_File:RF|registers[5][5]        ; Lost fanout        ;
+; Register_File:RF|registers[6][5]        ; Lost fanout        ;
+; Register_File:RF|registers[7][5]        ; Lost fanout        ;
+; Register_File:RF|registers[2][5]        ; Lost fanout        ;
+; Register_File:RF|registers[0][6]        ; Lost fanout        ;
+; Register_File:RF|registers[3][6]        ; Lost fanout        ;
+; Register_File:RF|registers[1][6]        ; Lost fanout        ;
+; Register_File:RF|registers[4][6]        ; Lost fanout        ;
+; Register_File:RF|registers[5][6]        ; Lost fanout        ;
+; Register_File:RF|registers[6][6]        ; Lost fanout        ;
+; Register_File:RF|registers[7][6]        ; Lost fanout        ;
+; Register_File:RF|registers[2][6]        ; Lost fanout        ;
+; Register_File:RF|registers[0][7]        ; Lost fanout        ;
+; Register_File:RF|registers[3][7]        ; Lost fanout        ;
+; Register_File:RF|registers[1][7]        ; Lost fanout        ;
+; Register_File:RF|registers[4][7]        ; Lost fanout        ;
+; Register_File:RF|registers[5][7]        ; Lost fanout        ;
+; Register_File:RF|registers[6][7]        ; Lost fanout        ;
+; Register_File:RF|registers[7][7]        ; Lost fanout        ;
+; Register_File:RF|registers[2][7]        ; Lost fanout        ;
+; Register_File:RF|registers[0][8]        ; Lost fanout        ;
+; Register_File:RF|registers[3][8]        ; Lost fanout        ;
+; Register_File:RF|registers[1][8]        ; Lost fanout        ;
+; Register_File:RF|registers[4][8]        ; Lost fanout        ;
+; Register_File:RF|registers[5][8]        ; Lost fanout        ;
+; Register_File:RF|registers[6][8]        ; Lost fanout        ;
+; Register_File:RF|registers[7][8]        ; Lost fanout        ;
+; Register_File:RF|registers[2][8]        ; Lost fanout        ;
+; Register_File:RF|registers[0][9]        ; Lost fanout        ;
+; Register_File:RF|registers[3][9]        ; Lost fanout        ;
+; Register_File:RF|registers[1][9]        ; Lost fanout        ;
+; Register_File:RF|registers[4][9]        ; Lost fanout        ;
+; Register_File:RF|registers[5][9]        ; Lost fanout        ;
+; Register_File:RF|registers[6][9]        ; Lost fanout        ;
+; Register_File:RF|registers[7][9]        ; Lost fanout        ;
+; Register_File:RF|registers[2][9]        ; Lost fanout        ;
+; Register_File:RF|registers[0][10]       ; Lost fanout        ;
+; Register_File:RF|registers[3][10]       ; Lost fanout        ;
+; Register_File:RF|registers[1][10]       ; Lost fanout        ;
+; Register_File:RF|registers[4][10]       ; Lost fanout        ;
+; Register_File:RF|registers[5][10]       ; Lost fanout        ;
+; Register_File:RF|registers[6][10]       ; Lost fanout        ;
+; Register_File:RF|registers[7][10]       ; Lost fanout        ;
+; Register_File:RF|registers[2][10]       ; Lost fanout        ;
+; Register_File:RF|registers[0][11]       ; Lost fanout        ;
+; Register_File:RF|registers[3][11]       ; Lost fanout        ;
+; Register_File:RF|registers[1][11]       ; Lost fanout        ;
+; Register_File:RF|registers[4][11]       ; Lost fanout        ;
+; Register_File:RF|registers[5][11]       ; Lost fanout        ;
+; Register_File:RF|registers[6][11]       ; Lost fanout        ;
+; Register_File:RF|registers[7][11]       ; Lost fanout        ;
+; Register_File:RF|registers[2][11]       ; Lost fanout        ;
+; Register_File:RF|registers[0][12]       ; Lost fanout        ;
+; Register_File:RF|registers[3][12]       ; Lost fanout        ;
+; Register_File:RF|registers[1][12]       ; Lost fanout        ;
+; Register_File:RF|registers[4][12]       ; Lost fanout        ;
+; Register_File:RF|registers[5][12]       ; Lost fanout        ;
+; Register_File:RF|registers[6][12]       ; Lost fanout        ;
+; Register_File:RF|registers[7][12]       ; Lost fanout        ;
+; Register_File:RF|registers[2][12]       ; Lost fanout        ;
+; Register_File:RF|registers[0][13]       ; Lost fanout        ;
+; Register_File:RF|registers[3][13]       ; Lost fanout        ;
+; Register_File:RF|registers[1][13]       ; Lost fanout        ;
+; Register_File:RF|registers[4][13]       ; Lost fanout        ;
+; Register_File:RF|registers[5][13]       ; Lost fanout        ;
+; Register_File:RF|registers[6][13]       ; Lost fanout        ;
+; Register_File:RF|registers[7][13]       ; Lost fanout        ;
+; Register_File:RF|registers[2][13]       ; Lost fanout        ;
+; Register_File:RF|registers[0][14]       ; Lost fanout        ;
+; Register_File:RF|registers[3][14]       ; Lost fanout        ;
+; Register_File:RF|registers[1][14]       ; Lost fanout        ;
+; Register_File:RF|registers[4][14]       ; Lost fanout        ;
+; Register_File:RF|registers[5][14]       ; Lost fanout        ;
+; Register_File:RF|registers[6][14]       ; Lost fanout        ;
+; Register_File:RF|registers[7][14]       ; Lost fanout        ;
+; Register_File:RF|registers[2][14]       ; Lost fanout        ;
+; Register_File:RF|registers[0][15]       ; Lost fanout        ;
+; Register_File:RF|registers[3][15]       ; Lost fanout        ;
+; Register_File:RF|registers[1][15]       ; Lost fanout        ;
+; Register_File:RF|registers[4][15]       ; Lost fanout        ;
+; Register_File:RF|registers[5][15]       ; Lost fanout        ;
+; Register_File:RF|registers[6][15]       ; Lost fanout        ;
+; Register_File:RF|registers[7][15]       ; Lost fanout        ;
+; Register_File:RF|registers[2][15]       ; Lost fanout        ;
+; Register_File:RF|registers[0][0]        ; Lost fanout        ;
+; Register_File:RF|registers[3][0]        ; Lost fanout        ;
+; Register_File:RF|registers[1][0]        ; Lost fanout        ;
+; Register_File:RF|registers[4][0]        ; Lost fanout        ;
+; Register_File:RF|registers[5][0]        ; Lost fanout        ;
+; Register_File:RF|registers[6][0]        ; Lost fanout        ;
+; Register_File:RF|registers[7][0]        ; Lost fanout        ;
+; Register_File:RF|registers[2][0]        ; Lost fanout        ;
+; Register_File:RF|registers[0][1]        ; Lost fanout        ;
+; Register_File:RF|registers[3][1]        ; Lost fanout        ;
+; Register_File:RF|registers[1][1]        ; Lost fanout        ;
+; Register_File:RF|registers[4][1]        ; Lost fanout        ;
+; Register_File:RF|registers[5][1]        ; Lost fanout        ;
+; Register_File:RF|registers[6][1]        ; Lost fanout        ;
+; Register_File:RF|registers[7][1]        ; Lost fanout        ;
+; Register_File:RF|registers[2][1]        ; Lost fanout        ;
+; Register_File:RF|registers[0][2]        ; Lost fanout        ;
+; Register_File:RF|registers[3][2]        ; Lost fanout        ;
+; Register_File:RF|registers[1][2]        ; Lost fanout        ;
+; Register_File:RF|registers[4][2]        ; Lost fanout        ;
+; Register_File:RF|registers[5][2]        ; Lost fanout        ;
+; Register_File:RF|registers[6][2]        ; Lost fanout        ;
+; Register_File:RF|registers[7][2]        ; Lost fanout        ;
+; Register_File:RF|registers[2][2]        ; Lost fanout        ;
+; pc[0]                                   ; Lost fanout        ;
+; t1[0]                                   ; Lost fanout        ;
+; t3[0]                                   ; Lost fanout        ;
+; pc[1]                                   ; Lost fanout        ;
+; t1[1]                                   ; Lost fanout        ;
+; t3[1]                                   ; Lost fanout        ;
+; pc[2]                                   ; Lost fanout        ;
+; t1[2]                                   ; Lost fanout        ;
+; t3[2]                                   ; Lost fanout        ;
+; pc[3]                                   ; Lost fanout        ;
+; t1[3]                                   ; Lost fanout        ;
+; t3[3]                                   ; Lost fanout        ;
+; pc[4]                                   ; Lost fanout        ;
+; t1[4]                                   ; Lost fanout        ;
+; t3[4]                                   ; Lost fanout        ;
+; pc[5]                                   ; Lost fanout        ;
+; t1[5]                                   ; Lost fanout        ;
+; t3[5]                                   ; Lost fanout        ;
+; pc[6]                                   ; Lost fanout        ;
+; t1[6]                                   ; Lost fanout        ;
+; t3[6]                                   ; Lost fanout        ;
+; pc[7]                                   ; Lost fanout        ;
+; t1[7]                                   ; Lost fanout        ;
+; t3[7]                                   ; Lost fanout        ;
+; pc[8]                                   ; Lost fanout        ;
+; t1[8]                                   ; Lost fanout        ;
+; t3[8]                                   ; Lost fanout        ;
+; pc[9]                                   ; Lost fanout        ;
+; t1[9]                                   ; Lost fanout        ;
+; t3[9]                                   ; Lost fanout        ;
+; pc[10]                                  ; Lost fanout        ;
+; t1[10]                                  ; Lost fanout        ;
+; t3[10]                                  ; Lost fanout        ;
+; pc[11]                                  ; Lost fanout        ;
+; t1[11]                                  ; Lost fanout        ;
+; t3[11]                                  ; Lost fanout        ;
+; pc[12]                                  ; Lost fanout        ;
+; t1[12]                                  ; Lost fanout        ;
+; t3[12]                                  ; Lost fanout        ;
+; pc[13]                                  ; Lost fanout        ;
+; t1[13]                                  ; Lost fanout        ;
+; t3[13]                                  ; Lost fanout        ;
+; pc[14]                                  ; Lost fanout        ;
+; t1[14]                                  ; Lost fanout        ;
+; t3[14]                                  ; Lost fanout        ;
+; pc[15]                                  ; Lost fanout        ;
+; t1[15]                                  ; Lost fanout        ;
+; t3[15]                                  ; Lost fanout        ;
+; ir[6..11]                               ; Lost fanout        ;
+; t2[0..2]                                ; Lost fanout        ;
+; ir[0,3..5]                              ; Lost fanout        ;
+; carry                                   ; Lost fanout        ;
+; ir[1]                                   ; Lost fanout        ;
+; zero                                    ; Lost fanout        ;
+; ir[2]                                   ; Lost fanout        ;
+; state.Sreset                            ; Lost fanout        ;
+; state.S0                                ; Lost fanout        ;
+; state.S1                                ; Lost fanout        ;
+; state.S2                                ; Lost fanout        ;
+; state.S3                                ; Lost fanout        ;
+; state.S4                                ; Lost fanout        ;
+; state.S5                                ; Lost fanout        ;
+; state.S6                                ; Lost fanout        ;
+; state.S7                                ; Lost fanout        ;
+; state.S8                                ; Lost fanout        ;
+; state.S9                                ; Lost fanout        ;
+; state.S10                               ; Lost fanout        ;
+; state.S11                               ; Lost fanout        ;
+; state.S12                               ; Lost fanout        ;
+; state.S13                               ; Lost fanout        ;
+; state.S14                               ; Lost fanout        ;
+; state.S15                               ; Lost fanout        ;
+; state.S16                               ; Lost fanout        ;
+; state.S17                               ; Lost fanout        ;
+; state.S18                               ; Lost fanout        ;
+; state.S19                               ; Lost fanout        ;
+; state.S20                               ; Lost fanout        ;
+; state.Spc                               ; Lost fanout        ;
+; Total Number of Removed Registers = 233 ;                    ;
++-----------------------------------------+--------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                               ;
++-----------------------------------+--------------------+--------------------------------------------------------------------------------------------------+
+; Register name                     ; Reason for Removal ; Registers Removed due to This Register                                                           ;
++-----------------------------------+--------------------+--------------------------------------------------------------------------------------------------+
+; t2[3]                             ; Lost Fanouts       ; Register_File:RF|registers[2][3], ir[11], ir[8], ir[9], t2[2], ir[3], state.Sreset, state.S1,    ;
+;                                   ;                    ; state.S2, state.S4, state.S8, state.S10, state.S13, state.S16                                    ;
+; Register_File:RF|registers[0][0]  ; Lost Fanouts       ; pc[0], t1[0], t3[0], state.S6, state.S11, state.S12, state.S15, state.S17, state.S19, state.S20, ;
+;                                   ;                    ; state.Spc                                                                                        ;
+; Register_File:RF|registers[0][3]  ; Lost Fanouts       ; pc[3], t1[3], t3[3], ir[7], state.S5, state.S7, state.S9, state.S14, state.S18                   ;
+; Register_File:RF|registers[0][13] ; Lost Fanouts       ; pc[13], t1[13], t3[13], ir[6]                                                                    ;
+; Register_File:RF|registers[0][9]  ; Lost Fanouts       ; pc[9], t1[9], t3[9], ir[2]                                                                       ;
+; Register_File:RF|registers[0][8]  ; Lost Fanouts       ; pc[8], t1[8], t3[8], ir[1]                                                                       ;
+; Register_File:RF|registers[0][7]  ; Lost Fanouts       ; pc[7], t1[7], t3[7], ir[0]                                                                       ;
+; Register_File:RF|registers[0][4]  ; Lost Fanouts       ; pc[4], t1[4], t3[4]                                                                              ;
+; Register_File:RF|registers[0][2]  ; Lost Fanouts       ; pc[2], t1[2], t3[2]                                                                              ;
+; Register_File:RF|registers[0][1]  ; Lost Fanouts       ; pc[1], t1[1], t3[1]                                                                              ;
+; Register_File:RF|registers[0][15] ; Lost Fanouts       ; pc[15], t1[15], t3[15]                                                                           ;
+; Register_File:RF|registers[0][14] ; Lost Fanouts       ; pc[14], t1[14], t3[14]                                                                           ;
+; Register_File:RF|registers[0][12] ; Lost Fanouts       ; pc[12], t1[12], t3[12]                                                                           ;
+; Register_File:RF|registers[0][11] ; Lost Fanouts       ; pc[11], t1[11], t3[11]                                                                           ;
+; Register_File:RF|registers[0][10] ; Lost Fanouts       ; pc[10], t1[10], t3[10]                                                                           ;
+; Register_File:RF|registers[0][6]  ; Lost Fanouts       ; pc[6], t1[6], t3[6]                                                                              ;
+; Register_File:RF|registers[0][5]  ; Lost Fanouts       ; pc[5], t1[5], t3[5]                                                                              ;
+; t2[5]                             ; Lost Fanouts       ; Register_File:RF|registers[2][5], ir[5]                                                          ;
+; t2[4]                             ; Lost Fanouts       ; Register_File:RF|registers[2][4], ir[4]                                                          ;
+; op_code[3]                        ; Lost Fanouts       ; state.S0                                                                                         ;
+; t2[15]                            ; Lost Fanouts       ; Register_File:RF|registers[2][15]                                                                ;
+; t2[14]                            ; Lost Fanouts       ; Register_File:RF|registers[2][14]                                                                ;
+; t2[13]                            ; Lost Fanouts       ; Register_File:RF|registers[2][13]                                                                ;
+; t2[12]                            ; Lost Fanouts       ; Register_File:RF|registers[2][12]                                                                ;
+; t2[11]                            ; Lost Fanouts       ; Register_File:RF|registers[2][11]                                                                ;
+; t2[10]                            ; Lost Fanouts       ; Register_File:RF|registers[2][10]                                                                ;
+; t2[9]                             ; Lost Fanouts       ; Register_File:RF|registers[2][9]                                                                 ;
+; t2[8]                             ; Lost Fanouts       ; Register_File:RF|registers[2][8]                                                                 ;
+; t2[7]                             ; Lost Fanouts       ; Register_File:RF|registers[2][7]                                                                 ;
+; t2[6]                             ; Lost Fanouts       ; Register_File:RF|registers[2][6]                                                                 ;
+; carry                             ; Lost Fanouts       ; state.S3                                                                                         ;
++-----------------------------------+--------------------+--------------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 0     ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                             ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------+
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |IITB_PROC|Register_File:RF|registers[0][0]  ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |IITB_PROC|Register_File:RF|registers[1][11] ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |IITB_PROC|Register_File:RF|registers[2][0]  ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |IITB_PROC|Register_File:RF|registers[3][5]  ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |IITB_PROC|Register_File:RF|registers[4][2]  ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |IITB_PROC|Register_File:RF|registers[5][1]  ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |IITB_PROC|Register_File:RF|registers[6][4]  ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |IITB_PROC|Register_File:RF|registers[7][14] ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 0 LEs                ; 32 LEs                 ; Yes        ; |IITB_PROC|pc[9]                             ;
+; 5:1                ; 16 bits   ; 48 LEs        ; 32 LEs               ; 16 LEs                 ; Yes        ; |IITB_PROC|t3[7]                             ;
+; 6:1                ; 7 bits    ; 28 LEs        ; 21 LEs               ; 7 LEs                  ; Yes        ; |IITB_PROC|t1[6]                             ;
+; 6:1                ; 9 bits    ; 36 LEs        ; 18 LEs               ; 18 LEs                 ; Yes        ; |IITB_PROC|t1[11]                            ;
+; 6:1                ; 16 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |IITB_PROC|t2[7]                             ;
+; 3:1                ; 15 bits   ; 30 LEs        ; 30 LEs               ; 0 LEs                  ; No         ; |IITB_PROC|ALU:ALUnit|t4[8]                  ;
+; 8:1                ; 16 bits   ; 80 LEs        ; 80 LEs               ; 0 LEs                  ; No         ; |IITB_PROC|Register_File:RF|Mux7             ;
+; 8:1                ; 16 bits   ; 80 LEs        ; 80 LEs               ; 0 LEs                  ; No         ; |IITB_PROC|Register_File:RF|Mux20            ;
+; 16:1               ; 11 bits   ; 110 LEs       ; 44 LEs               ; 66 LEs                 ; No         ; |IITB_PROC|Mux28                             ;
+; 16:1               ; 12 bits   ; 120 LEs       ; 60 LEs               ; 60 LEs                 ; No         ; |IITB_PROC|Mux7                              ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |IITB_PROC|Selector199                       ;
+; 3:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |IITB_PROC|Selector172                       ;
+; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |IITB_PROC|Selector137                       ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 32 LEs               ; 0 LEs                  ; No         ; |IITB_PROC|Selector144                       ;
+; 5:1                ; 16 bits   ; 48 LEs        ; 32 LEs               ; 16 LEs                 ; No         ; |IITB_PROC|Selector112                       ;
+; 35:1               ; 2 bits    ; 46 LEs        ; 14 LEs               ; 32 LEs                 ; No         ; |IITB_PROC|state                             ;
+; 37:1               ; 2 bits    ; 48 LEs        ; 16 LEs               ; 32 LEs                 ; No         ; |IITB_PROC|state                             ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------------------+
+
+
++------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "ALU:ALUnit|sixteen_bit_adder:op_1|full_adder:Full_Add1" ;
++------+-------+----------+----------------------------------------------------------+
+; Port ; Type  ; Severity ; Details                                                  ;
++------+-------+----------+----------------------------------------------------------+
+; cin  ; Input ; Info     ; Stuck at GND                                             ;
++------+-------+----------+----------------------------------------------------------+
+
+
++---------------------------------------------------------------+
+; Port Connectivity Checks: "ALU:ALUnit|sixteen_bit_adder:op_1" ;
++------+-------+----------+-------------------------------------+
+; Port ; Type  ; Severity ; Details                             ;
++------+-------+----------+-------------------------------------+
+; cin  ; Input ; Info     ; Stuck at GND                        ;
++------+-------+----------+-------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-------------------+---------------------------------+
+; Type              ; Count                           ;
++-------------------+---------------------------------+
+; boundary_port     ; 2                               ;
+;                   ;                                 ;
+; Max LUT depth     ; 0.00                            ;
+; Average LUT depth ; 0.00                            ;
++-------------------+---------------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:01     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+    Info: Processing started: Sat May 22 17:01:14 2021
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off IITB_Proc -c IITB_Proc
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file IITB_Proc.vhd
+    Info (12022): Found design unit 1: IITB_PROC-behave File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 12
+    Info (12023): Found entity 1: IITB_PROC File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 8
+Info (12021): Found 2 design units, including 1 entities, in source file full_adder.vhd
+    Info (12022): Found design unit 1: full_adder-struct File: /home/pushp/Project_226/CS226/My_Project/full_adder.vhd Line: 8
+    Info (12023): Found entity 1: full_adder File: /home/pushp/Project_226/CS226/My_Project/full_adder.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file LHI_Format.vhd
+    Info (12022): Found design unit 1: LHI_Format-Arch File: /home/pushp/Project_226/CS226/My_Project/LHI_Format.vhd Line: 9
+    Info (12023): Found entity 1: LHI_Format File: /home/pushp/Project_226/CS226/My_Project/LHI_Format.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file Register_File.vhd
+    Info (12022): Found design unit 1: Register_File-Arch File: /home/pushp/Project_226/CS226/My_Project/Register_File.vhd Line: 14
+    Info (12023): Found entity 1: Register_File File: /home/pushp/Project_226/CS226/My_Project/Register_File.vhd Line: 7
+Info (12021): Found 2 design units, including 1 entities, in source file seven_bit_sign_extender.vhd
+    Info (12022): Found design unit 1: seven_bit_sign_extender-Arch File: /home/pushp/Project_226/CS226/My_Project/seven_bit_sign_extender.vhd Line: 9
+    Info (12023): Found entity 1: seven_bit_sign_extender File: /home/pushp/Project_226/CS226/My_Project/seven_bit_sign_extender.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file sixteen_bit_adder.vhd
+    Info (12022): Found design unit 1: sixteen_bit_adder-struct File: /home/pushp/Project_226/CS226/My_Project/sixteen_bit_adder.vhd Line: 13
+    Info (12023): Found entity 1: sixteen_bit_adder File: /home/pushp/Project_226/CS226/My_Project/sixteen_bit_adder.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file ten_bit_sign_extender.vhd
+    Info (12022): Found design unit 1: ten_bit_sign_extender-Arch File: /home/pushp/Project_226/CS226/My_Project/ten_bit_sign_extender.vhd Line: 10
+    Info (12023): Found entity 1: ten_bit_sign_extender File: /home/pushp/Project_226/CS226/My_Project/ten_bit_sign_extender.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file sixteen_bit_nand.vhd
+    Info (12022): Found design unit 1: sixteen_bit_nand-Arch File: /home/pushp/Project_226/CS226/My_Project/sixteen_bit_nand.vhd Line: 13
+    Info (12023): Found entity 1: sixteen_bit_nand File: /home/pushp/Project_226/CS226/My_Project/sixteen_bit_nand.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file memory.vhd
+    Info (12022): Found design unit 1: memory-arch File: /home/pushp/Project_226/CS226/My_Project/memory.vhd Line: 15
+    Info (12023): Found entity 1: memory File: /home/pushp/Project_226/CS226/My_Project/memory.vhd Line: 8
+Info (12021): Found 2 design units, including 1 entities, in source file sixteen_bit_xor.vhd
+    Info (12022): Found design unit 1: sixteen_bit_xor-Arch File: /home/pushp/Project_226/CS226/My_Project/sixteen_bit_xor.vhd Line: 13
+    Info (12023): Found entity 1: sixteen_bit_xor File: /home/pushp/Project_226/CS226/My_Project/sixteen_bit_xor.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file ALU.vhd
+    Info (12022): Found design unit 1: ALU-arch File: /home/pushp/Project_226/CS226/My_Project/ALU.vhd Line: 15
+    Info (12023): Found entity 1: ALU File: /home/pushp/Project_226/CS226/My_Project/ALU.vhd Line: 7
+Info (12021): Found 2 design units, including 1 entities, in source file testbench.vhd
+    Info (12022): Found design unit 1: testbench-road File: /home/pushp/Project_226/CS226/My_Project/testbench.vhd Line: 9
+    Info (12023): Found entity 1: testbench File: /home/pushp/Project_226/CS226/My_Project/testbench.vhd Line: 6
+Info (12127): Elaborating entity "IITB_Proc" for the top level hierarchy
+Warning (10492): VHDL Process Statement warning at IITB_Proc.vhd(83): signal "t1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 83
+Warning (10492): VHDL Process Statement warning at IITB_Proc.vhd(83): signal "t2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 83
+Warning (10492): VHDL Process Statement warning at IITB_Proc.vhd(83): signal "t3" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 83
+Warning (10492): VHDL Process Statement warning at IITB_Proc.vhd(83): signal "t4" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 83
+Warning (10492): VHDL Process Statement warning at IITB_Proc.vhd(83): signal "ir" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 83
+Warning (10492): VHDL Process Statement warning at IITB_Proc.vhd(83): signal "op_code" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 83
+Warning (10492): VHDL Process Statement warning at IITB_Proc.vhd(84): signal "zero" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 84
+Warning (10492): VHDL Process Statement warning at IITB_Proc.vhd(84): signal "carry" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 84
+Warning (10492): VHDL Process Statement warning at IITB_Proc.vhd(85): signal "pc" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 85
+Warning (10492): VHDL Process Statement warning at IITB_Proc.vhd(114): signal "mem_data_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 114
+Warning (10492): VHDL Process Statement warning at IITB_Proc.vhd(150): signal "RF_D1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 150
+Warning (10492): VHDL Process Statement warning at IITB_Proc.vhd(151): signal "RF_D2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 151
+Warning (10492): VHDL Process Statement warning at IITB_Proc.vhd(172): signal "alu_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 172
+Warning (10492): VHDL Process Statement warning at IITB_Proc.vhd(186): signal "zero_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 186
+Warning (10492): VHDL Process Statement warning at IITB_Proc.vhd(205): signal "zero_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 205
+Warning (10492): VHDL Process Statement warning at IITB_Proc.vhd(209): signal "carry_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 209
+Warning (10492): VHDL Process Statement warning at IITB_Proc.vhd(216): signal "zero_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 216
+Warning (10492): VHDL Process Statement warning at IITB_Proc.vhd(219): signal "carry_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 219
+Warning (10492): VHDL Process Statement warning at IITB_Proc.vhd(226): signal "zero_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 226
+Warning (10492): VHDL Process Statement warning at IITB_Proc.vhd(229): signal "carry_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 229
+Warning (10492): VHDL Process Statement warning at IITB_Proc.vhd(243): signal "RF_D1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 243
+Warning (10492): VHDL Process Statement warning at IITB_Proc.vhd(245): signal "se10_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 245
+Warning (10492): VHDL Process Statement warning at IITB_Proc.vhd(256): signal "zero_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 256
+Warning (10492): VHDL Process Statement warning at IITB_Proc.vhd(260): signal "carry_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 260
+Warning (10492): VHDL Process Statement warning at IITB_Proc.vhd(275): signal "lhi_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 275
+Warning (10492): VHDL Process Statement warning at IITB_Proc.vhd(295): signal "RF_D1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 295
+Warning (10492): VHDL Process Statement warning at IITB_Proc.vhd(297): signal "se10_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 297
+Warning (10492): VHDL Process Statement warning at IITB_Proc.vhd(305): signal "zero_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 305
+Warning (10492): VHDL Process Statement warning at IITB_Proc.vhd(308): signal "carry_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 308
+Warning (10492): VHDL Process Statement warning at IITB_Proc.vhd(311): signal "mem_data_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 311
+Warning (10492): VHDL Process Statement warning at IITB_Proc.vhd(324): signal "RF_D1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 324
+Warning (10492): VHDL Process Statement warning at IITB_Proc.vhd(336): signal "RF_D1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 336
+Warning (10492): VHDL Process Statement warning at IITB_Proc.vhd(350): signal "mem_data_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 350
+Warning (10492): VHDL Process Statement warning at IITB_Proc.vhd(362): signal "alu_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 362
+Warning (10492): VHDL Process Statement warning at IITB_Proc.vhd(371): signal "alu_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 371
+Warning (10492): VHDL Process Statement warning at IITB_Proc.vhd(390): signal "RF_D2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 390
+Warning (10492): VHDL Process Statement warning at IITB_Proc.vhd(401): signal "alu_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 401
+Warning (10492): VHDL Process Statement warning at IITB_Proc.vhd(407): signal "pc" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 407
+Warning (10492): VHDL Process Statement warning at IITB_Proc.vhd(409): signal "se10_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 409
+Warning (10492): VHDL Process Statement warning at IITB_Proc.vhd(411): signal "alu_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 411
+Warning (10492): VHDL Process Statement warning at IITB_Proc.vhd(420): signal "pc" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 420
+Warning (10492): VHDL Process Statement warning at IITB_Proc.vhd(436): signal "se7_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 436
+Warning (10492): VHDL Process Statement warning at IITB_Proc.vhd(438): signal "alu_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 438
+Warning (10492): VHDL Process Statement warning at IITB_Proc.vhd(448): signal "RF_D1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 448
+Warning (10492): VHDL Process Statement warning at IITB_Proc.vhd(457): signal "pc" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 457
+Warning (10492): VHDL Process Statement warning at IITB_Proc.vhd(460): signal "alu_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 460
+Warning (10631): VHDL Process Statement warning at IITB_Proc.vhd(75): inferring latch(es) for signal or variable "mem_wr", which holds its previous value in one or more paths through the process File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Warning (10631): VHDL Process Statement warning at IITB_Proc.vhd(75): inferring latch(es) for signal or variable "mem_rd", which holds its previous value in one or more paths through the process File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Warning (10631): VHDL Process Statement warning at IITB_Proc.vhd(75): inferring latch(es) for signal or variable "RF_wr", which holds its previous value in one or more paths through the process File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Warning (10631): VHDL Process Statement warning at IITB_Proc.vhd(75): inferring latch(es) for signal or variable "RF_rst", which holds its previous value in one or more paths through the process File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Warning (10631): VHDL Process Statement warning at IITB_Proc.vhd(75): inferring latch(es) for signal or variable "mem_address", which holds its previous value in one or more paths through the process File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Warning (10631): VHDL Process Statement warning at IITB_Proc.vhd(75): inferring latch(es) for signal or variable "RF_A1", which holds its previous value in one or more paths through the process File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Warning (10631): VHDL Process Statement warning at IITB_Proc.vhd(75): inferring latch(es) for signal or variable "RF_A2", which holds its previous value in one or more paths through the process File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Warning (10631): VHDL Process Statement warning at IITB_Proc.vhd(75): inferring latch(es) for signal or variable "alu_x", which holds its previous value in one or more paths through the process File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Warning (10631): VHDL Process Statement warning at IITB_Proc.vhd(75): inferring latch(es) for signal or variable "alu_y", which holds its previous value in one or more paths through the process File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Warning (10631): VHDL Process Statement warning at IITB_Proc.vhd(75): inferring latch(es) for signal or variable "alu_op", which holds its previous value in one or more paths through the process File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Warning (10631): VHDL Process Statement warning at IITB_Proc.vhd(75): inferring latch(es) for signal or variable "RF_D3", which holds its previous value in one or more paths through the process File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Warning (10631): VHDL Process Statement warning at IITB_Proc.vhd(75): inferring latch(es) for signal or variable "RF_A3", which holds its previous value in one or more paths through the process File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Warning (10631): VHDL Process Statement warning at IITB_Proc.vhd(75): inferring latch(es) for signal or variable "se10_in", which holds its previous value in one or more paths through the process File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Warning (10631): VHDL Process Statement warning at IITB_Proc.vhd(75): inferring latch(es) for signal or variable "lhi_in", which holds its previous value in one or more paths through the process File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Warning (10631): VHDL Process Statement warning at IITB_Proc.vhd(75): inferring latch(es) for signal or variable "mem_data_in", which holds its previous value in one or more paths through the process File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Warning (10631): VHDL Process Statement warning at IITB_Proc.vhd(75): inferring latch(es) for signal or variable "se7_in", which holds its previous value in one or more paths through the process File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Info (10041): Inferred latch for "se7_in[0]" at IITB_Proc.vhd(75) File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Info (10041): Inferred latch for "se7_in[1]" at IITB_Proc.vhd(75) File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Info (10041): Inferred latch for "se7_in[2]" at IITB_Proc.vhd(75) File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Info (10041): Inferred latch for "se7_in[3]" at IITB_Proc.vhd(75) File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Info (10041): Inferred latch for "se7_in[4]" at IITB_Proc.vhd(75) File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Info (10041): Inferred latch for "se7_in[5]" at IITB_Proc.vhd(75) File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Info (10041): Inferred latch for "se7_in[6]" at IITB_Proc.vhd(75) File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Info (10041): Inferred latch for "se7_in[7]" at IITB_Proc.vhd(75) File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Info (10041): Inferred latch for "se7_in[8]" at IITB_Proc.vhd(75) File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Info (10041): Inferred latch for "mem_data_in[0]" at IITB_Proc.vhd(75) File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Info (10041): Inferred latch for "mem_data_in[1]" at IITB_Proc.vhd(75) File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Info (10041): Inferred latch for "mem_data_in[2]" at IITB_Proc.vhd(75) File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Info (10041): Inferred latch for "mem_data_in[3]" at IITB_Proc.vhd(75) File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Info (10041): Inferred latch for "mem_data_in[4]" at IITB_Proc.vhd(75) File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Info (10041): Inferred latch for "mem_data_in[5]" at IITB_Proc.vhd(75) File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Info (10041): Inferred latch for "mem_data_in[6]" at IITB_Proc.vhd(75) File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Info (10041): Inferred latch for "mem_data_in[7]" at IITB_Proc.vhd(75) File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Info (10041): Inferred latch for "mem_data_in[8]" at IITB_Proc.vhd(75) File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Info (10041): Inferred latch for "mem_data_in[9]" at IITB_Proc.vhd(75) File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Info (10041): Inferred latch for "mem_data_in[10]" at IITB_Proc.vhd(75) File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Info (10041): Inferred latch for "mem_data_in[11]" at IITB_Proc.vhd(75) File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Info (10041): Inferred latch for "mem_data_in[12]" at IITB_Proc.vhd(75) File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Info (10041): Inferred latch for "mem_data_in[13]" at IITB_Proc.vhd(75) File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Info (10041): Inferred latch for "mem_data_in[14]" at IITB_Proc.vhd(75) File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Info (10041): Inferred latch for "mem_data_in[15]" at IITB_Proc.vhd(75) File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Info (10041): Inferred latch for "lhi_in[0]" at IITB_Proc.vhd(75) File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Info (10041): Inferred latch for "lhi_in[1]" at IITB_Proc.vhd(75) File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Info (10041): Inferred latch for "lhi_in[2]" at IITB_Proc.vhd(75) File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Info (10041): Inferred latch for "lhi_in[3]" at IITB_Proc.vhd(75) File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Info (10041): Inferred latch for "lhi_in[4]" at IITB_Proc.vhd(75) File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Info (10041): Inferred latch for "lhi_in[5]" at IITB_Proc.vhd(75) File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Info (10041): Inferred latch for "lhi_in[6]" at IITB_Proc.vhd(75) File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Info (10041): Inferred latch for "lhi_in[7]" at IITB_Proc.vhd(75) File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Info (10041): Inferred latch for "lhi_in[8]" at IITB_Proc.vhd(75) File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Info (10041): Inferred latch for "se10_in[0]" at IITB_Proc.vhd(75) File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Info (10041): Inferred latch for "se10_in[1]" at IITB_Proc.vhd(75) File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Info (10041): Inferred latch for "se10_in[2]" at IITB_Proc.vhd(75) File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Info (10041): Inferred latch for "se10_in[3]" at IITB_Proc.vhd(75) File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Info (10041): Inferred latch for "se10_in[4]" at IITB_Proc.vhd(75) File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Info (10041): Inferred latch for "se10_in[5]" at IITB_Proc.vhd(75) File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Info (10041): Inferred latch for "RF_A3[0]" at IITB_Proc.vhd(75) File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Info (10041): Inferred latch for "RF_A3[1]" at IITB_Proc.vhd(75) File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Info (10041): Inferred latch for "RF_A3[2]" at IITB_Proc.vhd(75) File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Info (10041): Inferred latch for "RF_D3[0]" at IITB_Proc.vhd(75) File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Info (10041): Inferred latch for "RF_D3[1]" at IITB_Proc.vhd(75) File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Info (10041): Inferred latch for "RF_D3[2]" at IITB_Proc.vhd(75) File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Info (10041): Inferred latch for "RF_D3[3]" at IITB_Proc.vhd(75) File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Info (10041): Inferred latch for "RF_D3[4]" at IITB_Proc.vhd(75) File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Info (10041): Inferred latch for "RF_D3[5]" at IITB_Proc.vhd(75) File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Info (10041): Inferred latch for "RF_D3[6]" at IITB_Proc.vhd(75) File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Info (10041): Inferred latch for "RF_D3[7]" at IITB_Proc.vhd(75) File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Info (10041): Inferred latch for "RF_D3[8]" at IITB_Proc.vhd(75) File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Info (10041): Inferred latch for "RF_D3[9]" at IITB_Proc.vhd(75) File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Info (10041): Inferred latch for "RF_D3[10]" at IITB_Proc.vhd(75) File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Info (10041): Inferred latch for "RF_D3[11]" at IITB_Proc.vhd(75) File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Info (10041): Inferred latch for "RF_D3[12]" at IITB_Proc.vhd(75) File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Info (10041): Inferred latch for "RF_D3[13]" at IITB_Proc.vhd(75) File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Info (10041): Inferred latch for "RF_D3[14]" at IITB_Proc.vhd(75) File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Info (10041): Inferred latch for "RF_D3[15]" at IITB_Proc.vhd(75) File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Info (10041): Inferred latch for "alu_op[0]" at IITB_Proc.vhd(75) File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Info (10041): Inferred latch for "alu_op[1]" at IITB_Proc.vhd(75) File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Info (10041): Inferred latch for "alu_y[0]" at IITB_Proc.vhd(75) File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Info (10041): Inferred latch for "alu_y[1]" at IITB_Proc.vhd(75) File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Info (10041): Inferred latch for "alu_y[2]" at IITB_Proc.vhd(75) File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Info (10041): Inferred latch for "alu_y[3]" at IITB_Proc.vhd(75) File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Info (10041): Inferred latch for "alu_y[4]" at IITB_Proc.vhd(75) File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Info (10041): Inferred latch for "alu_y[5]" at IITB_Proc.vhd(75) File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Info (10041): Inferred latch for "alu_y[6]" at IITB_Proc.vhd(75) File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Info (10041): Inferred latch for "alu_y[7]" at IITB_Proc.vhd(75) File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Info (10041): Inferred latch for "alu_y[8]" at IITB_Proc.vhd(75) File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Info (10041): Inferred latch for "alu_y[9]" at IITB_Proc.vhd(75) File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Info (10041): Inferred latch for "alu_y[10]" at IITB_Proc.vhd(75) File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Info (10041): Inferred latch for "alu_y[11]" at IITB_Proc.vhd(75) File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Info (10041): Inferred latch for "alu_y[12]" at IITB_Proc.vhd(75) File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Info (10041): Inferred latch for "alu_y[13]" at IITB_Proc.vhd(75) File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Info (10041): Inferred latch for "alu_y[14]" at IITB_Proc.vhd(75) File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Info (10041): Inferred latch for "alu_y[15]" at IITB_Proc.vhd(75) File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Info (10041): Inferred latch for "alu_x[0]" at IITB_Proc.vhd(75) File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Info (10041): Inferred latch for "alu_x[1]" at IITB_Proc.vhd(75) File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Info (10041): Inferred latch for "alu_x[2]" at IITB_Proc.vhd(75) File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Info (10041): Inferred latch for "alu_x[3]" at IITB_Proc.vhd(75) File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Info (10041): Inferred latch for "alu_x[4]" at IITB_Proc.vhd(75) File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Info (10041): Inferred latch for "alu_x[5]" at IITB_Proc.vhd(75) File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Info (10041): Inferred latch for "alu_x[6]" at IITB_Proc.vhd(75) File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Info (10041): Inferred latch for "alu_x[7]" at IITB_Proc.vhd(75) File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Info (10041): Inferred latch for "alu_x[8]" at IITB_Proc.vhd(75) File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Info (10041): Inferred latch for "alu_x[9]" at IITB_Proc.vhd(75) File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Info (10041): Inferred latch for "alu_x[10]" at IITB_Proc.vhd(75) File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Info (10041): Inferred latch for "alu_x[11]" at IITB_Proc.vhd(75) File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Info (10041): Inferred latch for "alu_x[12]" at IITB_Proc.vhd(75) File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Info (10041): Inferred latch for "alu_x[13]" at IITB_Proc.vhd(75) File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Info (10041): Inferred latch for "alu_x[14]" at IITB_Proc.vhd(75) File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Info (10041): Inferred latch for "alu_x[15]" at IITB_Proc.vhd(75) File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Info (10041): Inferred latch for "RF_A2[0]" at IITB_Proc.vhd(75) File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Info (10041): Inferred latch for "RF_A2[1]" at IITB_Proc.vhd(75) File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Info (10041): Inferred latch for "RF_A2[2]" at IITB_Proc.vhd(75) File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Info (10041): Inferred latch for "RF_A1[0]" at IITB_Proc.vhd(75) File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Info (10041): Inferred latch for "RF_A1[1]" at IITB_Proc.vhd(75) File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Info (10041): Inferred latch for "RF_A1[2]" at IITB_Proc.vhd(75) File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Info (10041): Inferred latch for "mem_address[0]" at IITB_Proc.vhd(75) File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Info (10041): Inferred latch for "mem_address[1]" at IITB_Proc.vhd(75) File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Info (10041): Inferred latch for "mem_address[2]" at IITB_Proc.vhd(75) File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Info (10041): Inferred latch for "mem_address[3]" at IITB_Proc.vhd(75) File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Info (10041): Inferred latch for "mem_address[4]" at IITB_Proc.vhd(75) File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Info (10041): Inferred latch for "mem_address[5]" at IITB_Proc.vhd(75) File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Info (10041): Inferred latch for "mem_address[6]" at IITB_Proc.vhd(75) File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Info (10041): Inferred latch for "mem_address[7]" at IITB_Proc.vhd(75) File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Info (10041): Inferred latch for "mem_address[8]" at IITB_Proc.vhd(75) File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Info (10041): Inferred latch for "mem_address[9]" at IITB_Proc.vhd(75) File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Info (10041): Inferred latch for "mem_address[10]" at IITB_Proc.vhd(75) File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Info (10041): Inferred latch for "mem_address[11]" at IITB_Proc.vhd(75) File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Info (10041): Inferred latch for "mem_address[12]" at IITB_Proc.vhd(75) File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Info (10041): Inferred latch for "mem_address[13]" at IITB_Proc.vhd(75) File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Info (10041): Inferred latch for "mem_address[14]" at IITB_Proc.vhd(75) File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Info (10041): Inferred latch for "mem_address[15]" at IITB_Proc.vhd(75) File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Info (10041): Inferred latch for "RF_rst" at IITB_Proc.vhd(75) File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Info (10041): Inferred latch for "RF_wr" at IITB_Proc.vhd(75) File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Info (10041): Inferred latch for "mem_rd" at IITB_Proc.vhd(75) File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Info (10041): Inferred latch for "mem_wr" at IITB_Proc.vhd(75) File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 75
+Info (12128): Elaborating entity "seven_bit_sign_extender" for hierarchy "seven_bit_sign_extender:SE_7" File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 67
+Info (12128): Elaborating entity "ten_bit_sign_extender" for hierarchy "ten_bit_sign_extender:SE_10" File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 68
+Info (12128): Elaborating entity "LHI_Format" for hierarchy "LHI_Format:LHI" File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 69
+Info (12128): Elaborating entity "Register_File" for hierarchy "Register_File:RF" File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 70
+Warning (10492): VHDL Process Statement warning at Register_File.vhd(42): signal "registers" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/pushp/Project_226/CS226/My_Project/Register_File.vhd Line: 42
+Warning (10492): VHDL Process Statement warning at Register_File.vhd(43): signal "registers" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/pushp/Project_226/CS226/My_Project/Register_File.vhd Line: 43
+Info (12128): Elaborating entity "ALU" for hierarchy "ALU:ALUnit" File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 71
+Warning (10492): VHDL Process Statement warning at ALU.vhd(57): signal "car3" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: /home/pushp/Project_226/CS226/My_Project/ALU.vhd Line: 57
+Warning (10631): VHDL Process Statement warning at ALU.vhd(44): inferring latch(es) for signal or variable "t4", which holds its previous value in one or more paths through the process File: /home/pushp/Project_226/CS226/My_Project/ALU.vhd Line: 44
+Warning (10631): VHDL Process Statement warning at ALU.vhd(44): inferring latch(es) for signal or variable "C_out", which holds its previous value in one or more paths through the process File: /home/pushp/Project_226/CS226/My_Project/ALU.vhd Line: 44
+Info (10041): Inferred latch for "C_out" at ALU.vhd(44) File: /home/pushp/Project_226/CS226/My_Project/ALU.vhd Line: 44
+Info (10041): Inferred latch for "t4[0]" at ALU.vhd(44) File: /home/pushp/Project_226/CS226/My_Project/ALU.vhd Line: 44
+Info (10041): Inferred latch for "t4[1]" at ALU.vhd(44) File: /home/pushp/Project_226/CS226/My_Project/ALU.vhd Line: 44
+Info (10041): Inferred latch for "t4[2]" at ALU.vhd(44) File: /home/pushp/Project_226/CS226/My_Project/ALU.vhd Line: 44
+Info (10041): Inferred latch for "t4[3]" at ALU.vhd(44) File: /home/pushp/Project_226/CS226/My_Project/ALU.vhd Line: 44
+Info (10041): Inferred latch for "t4[4]" at ALU.vhd(44) File: /home/pushp/Project_226/CS226/My_Project/ALU.vhd Line: 44
+Info (10041): Inferred latch for "t4[5]" at ALU.vhd(44) File: /home/pushp/Project_226/CS226/My_Project/ALU.vhd Line: 44
+Info (10041): Inferred latch for "t4[6]" at ALU.vhd(44) File: /home/pushp/Project_226/CS226/My_Project/ALU.vhd Line: 44
+Info (10041): Inferred latch for "t4[7]" at ALU.vhd(44) File: /home/pushp/Project_226/CS226/My_Project/ALU.vhd Line: 44
+Info (10041): Inferred latch for "t4[8]" at ALU.vhd(44) File: /home/pushp/Project_226/CS226/My_Project/ALU.vhd Line: 44
+Info (10041): Inferred latch for "t4[9]" at ALU.vhd(44) File: /home/pushp/Project_226/CS226/My_Project/ALU.vhd Line: 44
+Info (10041): Inferred latch for "t4[10]" at ALU.vhd(44) File: /home/pushp/Project_226/CS226/My_Project/ALU.vhd Line: 44
+Info (10041): Inferred latch for "t4[11]" at ALU.vhd(44) File: /home/pushp/Project_226/CS226/My_Project/ALU.vhd Line: 44
+Info (10041): Inferred latch for "t4[12]" at ALU.vhd(44) File: /home/pushp/Project_226/CS226/My_Project/ALU.vhd Line: 44
+Info (10041): Inferred latch for "t4[13]" at ALU.vhd(44) File: /home/pushp/Project_226/CS226/My_Project/ALU.vhd Line: 44
+Info (10041): Inferred latch for "t4[14]" at ALU.vhd(44) File: /home/pushp/Project_226/CS226/My_Project/ALU.vhd Line: 44
+Info (10041): Inferred latch for "t4[15]" at ALU.vhd(44) File: /home/pushp/Project_226/CS226/My_Project/ALU.vhd Line: 44
+Info (12128): Elaborating entity "sixteen_bit_adder" for hierarchy "ALU:ALUnit|sixteen_bit_adder:op_1" File: /home/pushp/Project_226/CS226/My_Project/ALU.vhd Line: 40
+Info (12128): Elaborating entity "full_adder" for hierarchy "ALU:ALUnit|sixteen_bit_adder:op_1|full_adder:Full_Add1" File: /home/pushp/Project_226/CS226/My_Project/sixteen_bit_adder.vhd Line: 21
+Info (12128): Elaborating entity "sixteen_bit_nand" for hierarchy "ALU:ALUnit|sixteen_bit_nand:op_2" File: /home/pushp/Project_226/CS226/My_Project/ALU.vhd Line: 41
+Info (12128): Elaborating entity "sixteen_bit_xor" for hierarchy "ALU:ALUnit|sixteen_bit_xor:op_3" File: /home/pushp/Project_226/CS226/My_Project/ALU.vhd Line: 42
+Info (12128): Elaborating entity "memory" for hierarchy "memory:MEM" File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 72
+Warning (10631): VHDL Process Statement warning at memory.vhd(26): inferring latch(es) for signal or variable "D_out", which holds its previous value in one or more paths through the process File: /home/pushp/Project_226/CS226/My_Project/memory.vhd Line: 26
+Info (276014): Found 1 instances of uninferred RAM logic
+    Info (276007): RAM logic "memory:MEM|mem_reg" is uninferred due to asynchronous read logic File: /home/pushp/Project_226/CS226/My_Project/memory.vhd Line: 19
+Info (17049): 233 registers lost all their fanouts during netlist optimizations.
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 2 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "rst" File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 9
+    Warning (15610): No output dependent on input pin "clk" File: /home/pushp/Project_226/CS226/My_Project/IITB_Proc.vhd Line: 9
+Info (21057): Implemented 2 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 2 input pins
+    Info (21059): Implemented 0 output pins
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 72 warnings
+    Info: Peak virtual memory: 512 megabytes
+    Info: Processing ended: Sat May 22 17:01:25 2021
+    Info: Elapsed time: 00:00:11
+    Info: Total CPU time (on all processors): 00:00:20
+
+
